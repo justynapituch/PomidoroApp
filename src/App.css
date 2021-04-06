@@ -1,0 +1,76 @@
+body {
+  background-color: #282c34;
+  color: #61dafb;
+}
+
+.time-box-editor, .time-box-creator {
+  padding: 2rem;
+  border: 1px solid  #61dafb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  margin: 1rem auto;
+}
+
+.time-box-editor__label, .time-box-creator__label {
+  margin-bottom: 1rem;
+}
+
+.progress-bar-container {
+  border: 1px solid white;
+  height: 2rem;
+  width: 30rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.25rem;
+}
+
+.time-box {
+  background: #40b3d34b;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5rem 1rem;
+  padding: 0 1rem;
+}
+
+.progress-bar {
+  height: 1.5rem;
+  background: #61dafb;
+  width: 2rem;
+  border-radius: 0.25rem;
+}
+
+.current-time-player {
+  padding: 2rem;
+  border: 1px solid  #61dafb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+  margin: 1rem auto;
+}
+
+button {
+  background: #61dafb;
+  color: #333;
+  border: none;
+  height: 2rem;
+  border-radius: 0.25rem;
+  margin: 1rem 0.3rem;
+}
+
+button:hover {
+  background: #40b3d3;
+}
+
+button:disabled {
+  background: #eee;
+}
+
+.inactive {
+  opacity: 0.5;
+}
