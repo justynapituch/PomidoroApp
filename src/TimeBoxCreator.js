@@ -15,6 +15,7 @@ export class TimeBoxCreator extends React.Component {
       id: uuid(),
       title: this.titleInput.current.value,
       totalTimeInMinutes: this.totalTimeInMinutesInput.current.value,
+      isEditMode: false,
     });
   };
 

@@ -9,19 +9,19 @@ export class TimeBoxesList extends React.Component {
         id: "a",
         title: "Uczę się list",
         totalTimeInMinutes: 25,
-        editMode: false,
+        isEditMode: false,
       },
       {
         id: "b",
         title: "Uczę się formularzy",
         totalTimeInMinutes: 15,
-        editMode: false,
+        isEditMode: false,
       },
       {
         id: "c",
         title: "Uczę się komponentów niekontrolowanych",
         totalTimeInMinutes: 5,
-        editMode: false,
+        isEditMode: false,
       },
     ],
   };
@@ -55,26 +55,17 @@ export class TimeBoxesList extends React.Component {
     this.addTimeBox(timebox);
   };
 
-  setEditMode = (timeboxId) => {
+  toggleEditMode = (currentTimebox) => {
+    console.log(currentTimebox.isEditMode)
     this.setState((prevState) => {
       const timeboxes = prevState.timeboxes.map((timebox) =>
-        timebox.id === timeboxId ? { ...timebox, isEditMode: true } : timebox
+        timebox.id === currentTimebox.id ? { ...timebox, isEditMode: !currentTimebox.isEditMode } : timebox
       );
       return { timeboxes };
     });
   };
 
-  setReadOnlyMode = (timeboxId) => {
-    this.setState((prevState) => {
-      const timeboxes = prevState.timeboxes.map((timebox) =>
-        timebox.id === timeboxId ? { ...timebox, isEditMode: false } : timebox
-      );
-      return { timeboxes };
-    });
-  };
   //znalezc blad z pausa
-
-  //Edycja: toggle-edit
 
   //   Stwórz referencję do formularza (zamiast do pojedynczych pól) i w metodzie handleSubmit dostań się do wartości za pomocą API przeglądarki.
 
@@ -95,11 +86,11 @@ export class TimeBoxesList extends React.Component {
               totalTimeInMinutes={timebox.totalTimeInMinutes}
               onDelete={() => this.removeTimebox(timebox.id)}
               onEdit={() => {
-                this.setEditMode(timebox.id);
+                this.toggleEditMode(timebox);
               }}
               onSave={this.updateTimebox}
               onCancel={() => {
-                this.setReadOnlyMode(timebox.id);
+                this.toggleEditMode(timebox);
               }}
               isEditMode={timebox.isEditMode}
             />

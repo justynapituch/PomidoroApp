@@ -20,7 +20,6 @@ export class TimeBox extends React.Component {
 
   handleSave = (event) => {
     event.preventDefault();
-    //this.props.onSave(this.titleInput.current.value);
     this.props.onSave({
       id: this.props.id,
       title: this.titleInput.current.value,
@@ -47,9 +46,15 @@ export class TimeBox extends React.Component {
           </div>
         )}
         <div>
-          <button onClick={this.props.onCancel}>Anuluj</button>
-          <button onClick={this.handleSave}>Zapisz</button>
-          <button onClick={this.props.onEdit}>Edytuj</button>
+          {this.props.isEditMode && (
+            <>
+              <button onClick={this.props.onCancel}>Anuluj</button>
+              <button onClick={this.handleSave}>Zapisz</button>
+            </>
+          )}
+          {!this.props.isEditMode && (
+            <button onClick={this.props.onEdit}>Edytuj</button>
+          )}
           <button onClick={this.props.onDelete}>Usun</button>
         </div>
       </div>
